@@ -43,7 +43,7 @@ export async function createInvoice(
     status: formData.get('status'),
   });
 
-  // If form validation fails, return errors early. Otherwise continue.
+  // If form validation fails, return errors early. Otherwise, continue.
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
@@ -90,7 +90,7 @@ export async function updateInvoice(
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
-      message: 'Missing Fields. Failed ot update Invoice.',
+      message: 'Missing Fields. Failed to Update Invoice.',
     };
   }
 
@@ -122,7 +122,7 @@ export async function deleteInvoice(id: string) {
     return {
       message: 'Delete Invoice.',
     };
-  } catch {
+  } catch (error) {
     return {
       message: 'Database Error: Failed to Delete Invoice.',
     };
